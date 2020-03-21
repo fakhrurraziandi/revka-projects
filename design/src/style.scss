@@ -1,0 +1,164 @@
+
+
+
+@import "~bootstrap/scss/functions";
+@import './variables';
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+@import "./sections";
+@import "./carousels";
+
+@import "~owl.carousel/dist/assets/owl.carousel.min.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.css";
+
+
+.font--nunito{
+    font-family: 'Nunito', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+    
+}
+
+body {
+    min-height: 75rem;
+    // padding-top: 4.5rem;
+    background-image: url('./images/matrix.jpg');
+    // background-size: 50%;
+    // background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.nav-item{
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding-right: .52rem;
+    padding-left: .52rem;
+    font-weight: bold;
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4{
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    // z-index: 1;
+    margin-bottom: 0.5em;
+
+    &:before{
+        content: "";
+        display: block;
+        height: 1.5em;
+        width: 1.5em;
+        border: 5px solid $danger;
+        position: absolute;
+        top: 50%;
+        left: -0.5em;
+        transform: translateY(-50%);
+        z-index: 0;
+    }
+
+    &:after{
+        content: "";
+        display: block;
+        height: 5px;
+        width: 100px;
+        background: $danger;
+        position: absolute;
+        bottom: -0.2em;
+        right: -0.5em;
+        transform: translateY(-50%);
+        z-index: 9999999;
+    }
+}
+
+.lead{
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+.flip-card{
+    height: 350px;
+    width: 100%;
+    position: relative;
+    
+}
+
+.flip-card:hover > .flip-card__front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.flip-card:hover > .flip-card__back{
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.flip-card__front,
+.flip-card__back{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+}
+
+.flip-card__front{
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.flip-card__back{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.flip-card__image-holder{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.flip-card__content{
+    padding: 50px;
+}
+
