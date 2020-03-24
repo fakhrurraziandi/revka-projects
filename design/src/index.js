@@ -38,14 +38,17 @@ $('.service-carousel').owlCarousel({
     autoplayTimeout:5000,
     autoplayHoverPause:true,
     responsiveClass:true,
+    
     responsive:{
         0:{
             items:1,
             nav:true,
+            stagePadding: 75,
         },
         576:{
             items:2,
             nav:true,
+            stagePadding: 75,
         },
         768:{
             items:3,
@@ -65,7 +68,7 @@ $('.testimonial-carousel').owlCarousel({
     nav:true,
     items: 3,
     center: true,
-    // animateOut: 'fadeOut',
+    animateOut: 'fadeOut',
     autoplay:true,
     autoplayTimeout:5000,
     autoplayHoverPause:true,
@@ -76,7 +79,7 @@ $('.testimonial-carousel').owlCarousel({
             nav:true,
         },
         576:{
-            items:2,
+            items:1,
             nav:true,
         },
         768:{
@@ -88,4 +91,61 @@ $('.testimonial-carousel').owlCarousel({
             nav:true,
         }
     }
+});
+
+
+$('.portofolio-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    items: 3,
+    center: true,
+    animateOut: 'fadeOut',
+    autoplay:true,
+    autoplayTimeout:5000,
+    autoplayHoverPause:true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:2,
+            nav:true,
+        },
+        576:{
+            items:3,
+            nav:true,
+        },
+        768:{
+            items:5,
+            nav:true,
+        },
+        992:{
+            items:6,
+            nav:true,
+        }
+    }
+});
+
+
+$(function(){
+
+    // $('.aside-nav--link').on('click', function(){
+    //     $('.aside-nav--link').each(function(){
+    //         console.log($(this).attr('href'), window.location.hash);
+    //         if ($(this).attr('href')  ===  window.location.hash) {
+    //             $(this).addClass('active');
+    //         }else{
+    //             $(this).removeClass('active');
+    //         }
+    //     });
+    // });
+
+    // $('.aside-nav--link').each(function(){
+    //     console.log($(this).attr('href'), window.location.hash);
+    //     if ($(this).attr('href')  ===  window.location.hash) {
+    //         $(this).addClass('active');
+    //     }else{
+    //         $(this).removeClass('active');
+    //     }
+    // });
+    
 });
