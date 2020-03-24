@@ -12,6 +12,20 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('bootstrap-table');
+    window.showLoader = require('./loader').showLoader;
+    window.hideLoader = require('./loader').hideLoader;
+    // require('../sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js');
+    
+    require('../sb-admin-2/vendor/jquery-easing/jquery.easing.min.js');
+    
+    require('../sb-admin-2/js/sb-admin-2.min.js');
+    
+    require('../sb-admin-2/vendor/chart.js/Chart.min.js');
+    
+    require('../sb-admin-2/js/demo/chart-area-demo.js');
+    require('../sb-admin-2/js/demo/chart-pie-demo.js');
+    
 } catch (e) {}
 
 /**

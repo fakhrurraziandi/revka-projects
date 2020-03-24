@@ -1,14 +1,30 @@
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Custom fonts for this template
+@import "../sb-admin-2/vendor/fontawesome-free/css/all.min.css";
 
-// Variables
-@import 'variables';
+@import "./variables.scss";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+// Import Bootstrap
+@import "../sb-admin-2/scss/../vendor/bootstrap/scss/bootstrap.scss";
+
+// Import Custom SB Admin 2 Mixins and Components
+@import "../sb-admin-2/scss/mixins.scss";
+@import "../sb-admin-2/scss/global.scss";
+@import "../sb-admin-2/scss/utilities.scss";
+
+// Custom Components
+@import "../sb-admin-2/scss/dropdowns.scss";
+@import "../sb-admin-2/scss/navs.scss";
+@import "../sb-admin-2/scss/buttons.scss";
+@import "../sb-admin-2/scss/cards.scss";
+@import "../sb-admin-2/scss/charts.scss";
+@import "../sb-admin-2/scss/login.scss";
+@import "../sb-admin-2/scss/error.scss";
+@import "../sb-admin-2/scss/footer.scss";
+
+
+@import '~bootstrap-table/dist/bootstrap-table.min.css';
+
+@import 'loader';
+
