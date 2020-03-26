@@ -32,5 +32,14 @@ Route::group(['as' => 'app.', 'prefix' => 'app', 'namespace' => 'App', 'middlewa
     Route::get('service_carousel/data', 'ServiceCarouselController@data')->name('service_carousel.data');
     Route::resource('service_carousel', 'ServiceCarouselController');
 
+    Route::get('value_content/data', 'ValueContentController@data')->name('value_content.data');
+    Route::resource('value_content', 'ValueContentController');
+
+    Route::get('client_testimonial/data', 'ClientTestimonialController@data')->name('client_testimonial.data');
+    Route::resource('client_testimonial', 'ClientTestimonialController');
+
+    Route::get('portofolio/data', 'PortofolioController@data')->name('portofolio.data');
+    Route::resource('portofolio', 'PortofolioController');
+
     
 });

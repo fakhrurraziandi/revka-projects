@@ -1,6 +1,9 @@
 <?php 
+use App\Portofolio;
+use App\ValueContent;
 use App\HeaderCarousel;
 use App\ServiceCarousel;
+use App\ClientTestimonial;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,37 +154,22 @@ use App\ServiceCarousel;
                         <h5>{{setting('value_section__subtitle')}}</h5>
                     </div>
                 </div>
-                <div class="row mb-3 justify-content-center">
-                    <div class="col-6 col-sm-6 col-md mb-4 text-center">
-                        <img src="{{asset('design/dist/images/brave/b.png')}}" class="img-fluid mb-3" alt="">
-                        <h4 class="mb-4 font--nunito">Best Work</h4>
-                        <p>Memberdayakan seluruh potensi yang dimiliki untuk menghasilkan karya terbaik.</p>
-                    </div>
 
-                    <div class="col-6 col-sm-6 col-md mb-4 text-center">
-                        <img src="{{asset('design/dist/images/brave/r.png')}}" class="img-fluid mb-3" alt="">
-                        <h4 class="mb-4 font--nunito">Reliable</h4>
-                        <p>Bertanggung jawab terhadap komitmen dan pekerjaan yang dimiliki.</p>
-                    </div>
+                @if(ValueContent::count() > 0)
 
-                    <div class="col-6 col-sm-6 col-md mb-4 text-center">
-                        <img src="{{asset('design/dist/images/brave/a.png')}}" class="img-fluid mb-3" alt="">
-                        <h4 class="mb-4 font--nunito">Agile</h4>
-                        <p>Cepat tanggap dalam menghadapi segala tantangan yang akan dihadapi.</p>
-                    </div>
+                    <div class="row mb-3 justify-content-center">
 
-                    <div class="col-6 col-sm-6 col-md mb-4 text-center">
-                        <img src="{{asset('design/dist/images/brave/v.png')}}" class="img-fluid mb-3" alt="">
-                        <h4 class="mb-4 font--nunito">Virtuos</h4>
-                        <p>Bekerja dengan hari, melayani dengan murni</p>
-                    </div>
+                        @foreach(ValueContent::all() as $value_content)
 
-                    <div class="col-6 col-sm-6 col-md mb-4 text-center">
-                        <img src="{{asset('design/dist/images/brave/e.png')}}" class="img-fluid mb-3" alt="">
-                        <h4 class="mb-4 font--nunito">Empathy</h4>
-                        <p>Kokoh, saling menghargai, bersinergi menjadi satu.</p>
+                            <div class="col-6 col-sm-6 col-md mb-4 text-center">
+                                <img src="{{$value_content->image_url}}" class="img-fluid mb-3" alt="">
+                                <h4 class="mb-4 font--nunito">{{$value_content->title}}</h4>
+                                <p>{{$value_content->description}}</p>
+                            </div>
+
+                        @endforeach
                     </div>
-                </div>
+                @endif
             </div>
         </section>
 
@@ -195,71 +183,28 @@ use App\ServiceCarousel;
                         <h6>{{setting('testimonial_section__subtitle')}}</h6>
                     </div>
                 </div>
-                <div class="row mb-3 justify-content-center">
-                    <div class="col-md-8 text-center">
-                        <div class="owl-carousel testimonial-carousel owl-theme">
-                            <div class="testimonial-carousel__item">
 
-                                <div class="testimonial-carousel__image-holder" style="background-image: url('{{asset('design/dist/images/avatar-3.PNG')}}');"></div>
-                                <div class="testimonial-carousel__text bg-danger text-center">
-                                    <h5 class="font--nunito my-2">Thomas Larson</h5>
-                                    <p><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, dignissimos!</small></p>
-                                </div>
+                @if(ClientTestimonial::count() > 0)
+
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="owl-carousel testimonial-carousel owl-theme">
+
+                                @foreach(ClientTestimonial::all() as $client_testimonial)
+                                    <div class="testimonial-carousel__item">
+
+                                        <div class="testimonial-carousel__image-holder" style="background-image: url('{{$client_testimonial->image_url}}');"></div>
+                                        <div class="testimonial-carousel__text bg-danger text-center px-3">
+                                            <h5 class="font--nunito my-2">{{$client_testimonial->name}}</h5>
+                                            <p><small>{{$client_testimonial->testimonial}}</small></p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                
                             </div>
-
-                            <div class="testimonial-carousel__item">
-
-                                <div class="testimonial-carousel__image-holder" style="background-image: url('{{asset('design/dist/images/avatar-1.PNG')}}');"></div>
-                                <div class="testimonial-carousel__text bg-danger text-center">
-                                    <h5 class="font--nunito my-2">Erick Jhonson</h5>
-                                    <p><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, dignissimos!</small></p>
-                                </div>
-
-                            </div>
-
-                            <div class="testimonial-carousel__item">
-
-                                <div class="testimonial-carousel__image-holder" style="background-image: url('{{asset('design/dist/images/avatar-2.PNG')}}');"></div>
-                                <div class="testimonial-carousel__text bg-danger text-center">
-                                    <h5 class="font--nunito my-2">Pierre Lipton</h5>
-                                    <p><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, dignissimos!</small></p>
-                                </div>
-
-                            </div>
-
-                            <div class="testimonial-carousel__item">
-
-                                <div class="testimonial-carousel__image-holder" style="background-image: url('{{asset('design/dist/images/avatar-3.PNG')}}');"></div>
-                                <div class="testimonial-carousel__text bg-danger text-center">
-                                    <h5 class="font--nunito my-2">Thomas Larson</h5>
-                                    <p><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, dignissimos!</small></p>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-carousel__item">
-
-                                <div class="testimonial-carousel__image-holder" style="background-image: url('{{asset('design/dist/images/avatar-1.PNG')}}');"></div>
-                                <div class="testimonial-carousel__text bg-danger text-center">
-                                    <h5 class="font--nunito my-2">Erick Jhonson</h5>
-                                    <p><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, dignissimos!</small></p>
-                                </div>
-
-                            </div>
-
-                            <div class="testimonial-carousel__item">
-
-                                <div class="testimonial-carousel__image-holder" style="background-image: url('{{asset('design/dist/images/avatar-2.PNG')}}');"></div>
-                                <div class="testimonial-carousel__text bg-danger text-center">
-                                    <h5 class="font--nunito my-2">Pierre Lipton</h5>
-                                    <p><small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, dignissimos!</small></p>
-                                </div>
-
-                            </div>
-
-                            
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </section>
 
@@ -273,62 +218,27 @@ use App\ServiceCarousel;
                         <p>{{setting('portofolio_section__subtitle')}}</p>
                     </div>
                 </div>
-                <div class="row mb-3 justify-content-center">
-                    <div class="owl-carousel portofolio-carousel owl-theme">
-                        <div class="portofolio-carousel__item">
 
-                            <div class="portofolio-carousel__image-holder" style="background-image: url('https://picsum.photos/id/1/200/300');"></div>
-                            <div class="portofolio-carousel__text">
-                                <h5 class="font--nunito mb-0">Web Design</h5>
-                            </div>
-                        </div>
+                @if(Portofolio::count() > 0)
+                    <div class="row mb-3 justify-content-center">
+                        <div class="owl-carousel portofolio-carousel owl-theme">
 
-                        <div class="portofolio-carousel__item">
+                            @foreach(Portofolio::all() as $portofolio)
+                                <div class="portofolio-carousel__item">
+                                    
+                                    <div class="portofolio-carousel__image-holder" style="background-image: url('{{$portofolio->image_url}}');"></div>
+                                    <div class="portofolio-carousel__text px-5">
+                                        <h5 class="font--nunito mb-0">
+                                            {{$portofolio->title}}
+                                        </h5>
+                                    </div>
+                                </div>
+                            @endforeach
 
-                            <div class="portofolio-carousel__image-holder" style="background-image: url('https://picsum.photos/id/2/200/300');"></div>
-                            <div class="portofolio-carousel__text">
-                                <h5 class="font--nunito mb-0">Web Design Test</h5>
-                            </div>
-
-                        </div>
-
-                        <div class="portofolio-carousel__item">
-
-                            <div class="portofolio-carousel__image-holder" style="background-image: url('https://picsum.photos/id/3/200/300');"></div>
-                            <div class="portofolio-carousel__text">
-                                <h5 class="font--nunito mb-0">Web Design</h5>
-                            </div>
-
-                        </div>
-
-                        <div class="portofolio-carousel__item">
-
-                            <div class="portofolio-carousel__image-holder" style="background-image: url('https://picsum.photos/id/4/200/300');"></div>
-                            <div class="portofolio-carousel__text">
-                                <h5 class="font--nunito mb-0">Web Design</h5>
-                            </div>
-
-                        </div>
-
-                        <div class="portofolio-carousel__item">
-
-                            <div class="portofolio-carousel__image-holder" style="background-image: url('https://picsum.photos/id/5/200/300');"></div>
-                            <div class="portofolio-carousel__text">
-                                <h5 class="font--nunito mb-0">Web Design</h5>
-                            </div>
-
-                        </div>
-
-                        <div class="portofolio-carousel__item">
-
-                            <div class="portofolio-carousel__image-holder" style="background-image: url('https://picsum.photos/id/6/200/300');"></div>
-                            <div class="portofolio-carousel__text">
-                                <h5 class="font--nunito mb-0">Web Design</h5>
-                            </div>
-
+                            
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </section>
 

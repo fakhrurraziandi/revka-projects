@@ -74,8 +74,26 @@ use Illuminate\Support\Facades\Request;
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('app.service_carousel.index')}}">
+                    <i class="fas fa-fw fa-handshake"></i>
+                    <span>Services</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('app.value_content.index')}}">
+                    <i class="fas fa-fw fa-paragraph"></i>
+                    <span>Value Content</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('app.client_testimonial.index')}}">
+                    <i class="fas fa-fw fa-quote-right"></i>
+                    <span>Client Testimonials</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('app.portofolio.index')}}">
                     <i class="fas fa-fw fa-images"></i>
-                    <span>Service Carousel</span></a>
+                    <span>Portofolios</span></a>
                 </li>
 
 
