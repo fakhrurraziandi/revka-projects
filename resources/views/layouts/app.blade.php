@@ -72,6 +72,12 @@ use Illuminate\Support\Facades\Request;
                     <span>Header Carousel</span></a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('app.service_carousel.index')}}">
+                    <i class="fas fa-fw fa-images"></i>
+                    <span>Service Carousel</span></a>
+                </li>
+
 
                 {{-- <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">

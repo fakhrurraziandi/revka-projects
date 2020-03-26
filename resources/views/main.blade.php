@@ -1,5 +1,6 @@
 <?php 
 use App\HeaderCarousel;
+use App\ServiceCarousel;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,103 +67,57 @@ use App\HeaderCarousel;
                     @endforeach
                 </div>
             </header>
+        @endif
+
+        @if(ServiceCarousel::count() > 0)
+        
+            <section class="section section--service d-flex align-items-center" id="section-service">
+
+                
+
+                <div class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 ">
+                            <div class="text-center">
+                                <h2 class="display-4">{{setting('service_section__title')}}</h2>
+                                <p>{{setting('service_section__subtitle')}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="owl-carousel service-carousel owl-theme">
+
+                                @foreach(ServiceCarousel::all() as $service_carousel)
+
+                                    <div class="service-carousel__item">
+                                        <div class="flip-card">
+                                            <div class="flip-card__front">
+                                                <div class="flip-card__image-holder" style="background-image: url('{{$service_carousel->image_url}}');"></div>
+                                            </div>
+                                            <div class="flip-card__back bg-danger">
+                                                <div class="flip-card__content text-center">
+                                                    <h3>{{$service_carousel->title}}</h3>
+                                                    <hr class="bg-white">
+                                                    <p>{{$service_carousel->description}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                @endforeach
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </section>
 
         @endif
-        
-        <section class="section section--service d-flex align-items-center" id="section-service">
-
-            <div class="container mt-5">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 ">
-                        <div class="text-center">
-                            <h2 class="display-4">{{setting('service_section__title')}}</h2>
-                            <p>{{setting('service_section__subtitle')}}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 ">
-                        <div class="owl-carousel service-carousel owl-theme">
-                            <div class="service-carousel__item">
-                                <div class="flip-card">
-                                    <div class="flip-card__front">
-                                        <div class="flip-card__image-holder" style="background-image: url('{{asset('design/dist/images/adult-business-computer-contemporary-380769.jpg')}}');"></div>
-                                    </div>
-                                    <div class="flip-card__back bg-danger">
-                                        <div class="flip-card__content text-center">
-                                            <h3>Hardware Procurement</h3>
-                                            <hr class="bg-white">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem veniam itaque laudantium architecto eaque vero.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="service-carousel__item">
-                                <div class="flip-card">
-                                    <div class="flip-card__front">
-                                        <div class="flip-card__image-holder" style="background-image: url('{{asset('design/dist/images/books-cup-of-coffee-desk-laptop-373892.jpg')}}');"></div>
-                                    </div>
-                                    <div class="flip-card__back bg-danger">
-                                        <div class="flip-card__content text-center">
-                                            <h3>Hardware Procurement</h3>
-                                            <hr class="bg-white">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem veniam itaque laudantium architecto eaque vero.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="service-carousel__item">
-                                <div class="flip-card">
-                                    <div class="flip-card__front">
-                                        <div class="flip-card__image-holder" style="background-image: url('{{asset('design/dist/images/photograph-of-men-having-conversation-seating-on-chair-1015568.jpg')}}');"></div>
-                                    </div>
-                                    <div class="flip-card__back bg-danger">
-                                        <div class="flip-card__content text-center">
-                                            <h3>Hardware Procurement</h3>
-                                            <hr class="bg-white">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem veniam itaque laudantium architecto eaque vero.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="service-carousel__item">
-                                <div class="flip-card">
-                                    <div class="flip-card__front">
-                                        <div class="flip-card__image-holder" style="background-image: url('{{asset('design/dist/images/adult-business-computer-contemporary-380769.jpg')}}');"></div>
-                                    </div>
-                                    <div class="flip-card__back bg-danger">
-                                        <div class="flip-card__content text-center">
-                                            <h3>Hardware Procurement</h3>
-                                            <hr class="bg-white">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem veniam itaque laudantium architecto eaque vero.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="service-carousel__item">
-                                <div class="flip-card">
-                                    <div class="flip-card__front">
-                                        <div class="flip-card__image-holder" style="background-image: url('{{asset('design/dist/images/adult-business-computer-contemporary-380769.jpg')}}');"></div>
-                                    </div>
-                                    <div class="flip-card__back bg-danger">
-                                        <div class="flip-card__content text-center">
-                                            <h3>Hardware Procurement</h3>
-                                            <hr class="bg-white">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem veniam itaque laudantium architecto eaque vero.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="section section--about d-flex align-items-center" id="section-about">
 

@@ -28,4 +28,9 @@ Route::group(['as' => 'app.', 'prefix' => 'app', 'namespace' => 'App', 'middlewa
 
     Route::get('header_carousel/data', 'HeaderCarouselController@data')->name('header_carousel.data');
     Route::resource('header_carousel', 'HeaderCarouselController');
+
+    Route::get('service_carousel/data', 'ServiceCarouselController@data')->name('service_carousel.data');
+    Route::resource('service_carousel', 'ServiceCarouselController');
+
+    
 });
