@@ -41,11 +41,16 @@
 @import "./sections";
 @import "./carousels";
 
+
+
 @import "~owl.carousel/dist/assets/owl.carousel.min.css";
 @import "~owl.carousel/dist/assets/owl.theme.default.css";
 
 $fa-font-path:        "~font-awesome/fonts" !default;
 @import "~font-awesome/scss/font-awesome";
+
+@import "~lightbox2/dist/css/lightbox.min.css";
+
 
 
 
@@ -73,6 +78,8 @@ body {
 
 a{
     color: $danger;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .aside-nav{

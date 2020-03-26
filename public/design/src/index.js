@@ -10,6 +10,7 @@ import './style.scss';
 import 'popper.js';
 import 'bootstrap';
 import 'owl.carousel';
+import 'lightbox2';
 
 
 

@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "lightbox2": "^2.11.1",
     "owl.carousel": "^2.3.4"
   }
 }
