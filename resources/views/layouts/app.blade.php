@@ -66,6 +66,12 @@ use Illuminate\Support\Facades\Request;
                     <span>Settings</span></a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('app.header_carousel.index')}}">
+                    <i class="fas fa-fw fa-images"></i>
+                    <span>Header Carousel</span></a>
+                </li>
+
 
                 {{-- <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
@@ -373,10 +379,12 @@ use Illuminate\Support\Facades\Request;
             });
         </script>
     
+        {{-- 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script>
             const socket = io('http://localhost:3000');
-        </script>
+        </script> 
+        --}}
 
         @yield('scripts')
     </body>

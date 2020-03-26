@@ -1,3 +1,6 @@
+<?php 
+use App\HeaderCarousel;
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,54 +46,28 @@
             </div>
         </nav>
 
-        <header class="section section--header">
-            <div class="owl-carousel header-carousel owl-theme">
-                <div class="header-carousel__item" style="background-image: url('{{asset('design/dist/images/books-cup-of-coffee-desk-laptop-373892.jpg')}}');">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8 text-center">
-                                <h1 class="font-weight-normal">Welcome To Switch Onepage Theme</h1>
-                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente veniam provident aperiam atque facere recusandae dicta fugit unde!</p>
-                                <p class="my-5"><a href="#" class="btn btn-danger btn-lg">Join Us</a></p>
+        @if(HeaderCarousel::count() > 0)
+
+            <header class="section section--header">
+                <div class="owl-carousel header-carousel owl-theme">
+
+                    @foreach(HeaderCarousel::all() as $header_carousel)
+                        <div class="header-carousel__item" style="background-image: url({{$header_carousel->image_url}});">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 text-center">
+                                    <h1 class="font-weight-normal">{{$header_carousel->title}}</h1>
+                                        <p class="lead">{{$header_carousel->subtitle}}</p>
+                                        <p class="my-5"><a href="{{$header_carousel->link_url}}" class="btn btn-danger btn-lg">{{$header_carousel->link_text}}</a></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="header-carousel__item" style="background-image: url('{{asset('design/dist/images/photograph-of-men-having-conversation-seating-on-chair-1015568.jpg')}}');">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8 text-center">
-                                <h1 class="font-weight-normal">Welcome To Switch Onepage Theme</h1>
-                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente veniam provident aperiam atque facere recusandae dicta fugit unde!</p>
-                                <p class="my-5"><a href="#" class="btn btn-danger btn-lg">Join Us</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-carousel__item" style="background-image: url('{{asset('design/dist/images/books-cup-of-coffee-desk-laptop-373892.jpg')}}');">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8 text-center">
-                                <h1 class="font-weight-normal">Welcome To Switch Onepage Theme</h1>
-                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente veniam provident aperiam atque facere recusandae dicta fugit unde!</p>
-                                <p class="my-5"><a href="#" class="btn btn-danger btn-lg">Join Us</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-carousel__item" style="background-image: url('{{asset('design/dist/images/photograph-of-men-having-conversation-seating-on-chair-1015568.jpg')}}');">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8 text-center">
-                                <h1 class="font-weight-normal">Welcome To Switch Onepage Theme</h1>
-                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente veniam provident aperiam atque facere recusandae dicta fugit unde!</p>
-                                <p class="my-5"><a href="#" class="btn btn-danger btn-lg">Join Us</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+            </header>
+
+        @endif
         
         <section class="section section--service d-flex align-items-center" id="section-service">
 
@@ -215,9 +192,8 @@
             <div class="container mt-5">
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-7 text-center">
-                        
-                        <h2 class="display-4">Our Values</h2>
-                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus! Dolor provident voluptate qui iste sapiente! Consequuntur, corrupti?</h5>
+                        <h2 class="display-4">{{setting('value_section__title')}}</h2>
+                        <h5>{{setting('value_section__subtitle')}}</h5>
                     </div>
                 </div>
                 <div class="row mb-3 justify-content-center">
@@ -260,8 +236,8 @@
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-7 text-center">
                         
-                        <h2 class="display-4">Clients Testimonials</h2>
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus! Dolor provident voluptate qui iste sapiente! Consequuntur, corrupti?</h6>
+                        <h2 class="display-4">{{setting('testimonial_section__title')}}</h2>
+                        <h6>{{setting('testimonial_section__subtitle')}}</h6>
                     </div>
                 </div>
                 <div class="row mb-3 justify-content-center">
@@ -338,8 +314,8 @@
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-7 text-center">
                         
-                        <h2 class="display-4">Our Portofolio</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus! Dolor provident voluptate qui iste sapiente! Consequuntur, corrupti?</p>
+                        <h2 class="display-4">{{setting('portofolio_section__title')}}</h2>
+                        <p>{{setting('portofolio_section__subtitle')}}</p>
                     </div>
                 </div>
                 <div class="row mb-3 justify-content-center">
@@ -409,27 +385,27 @@
                             <div class="col-md-8 text-center py-5">
 
                                 <div class="mb-4">
-                                    <h2 class="display-4">Contact</h2>
-                                    <p class="lead">We must understand what your needs are in order to offer</p>
+                                    <h2 class="display-4">{{setting('contact_section__title')}}</h2>
+                                    <p class="lead">{{setting('contact_section__subtitle')}}</p>
                                 </div>
 
                                 <ul class="list-unstyled text-left">
                                     <li class="media align-items-center my-4">
                                         <i class="fa fa-map-marker fa-2x text-center" style="width: 100px;"></i>
                                         <div class="media-body">
-                                            <h6 class="mt-0 mb-1">Jl. Jupiter Tengah 1 Bandung, Indonesia</h6>
+                                            <h6 class="mt-0 mb-1">{{setting('contact_section__address')}}</h6>
                                         </div>
                                     </li>
                                     <li class="media align-items-center my-4">
                                         <i class="fa fa-envelope fa-2x text-center" style="width: 100px;"></i>
                                         <div class="media-body">
-                                            <h6 class="mt-0 mb-1">Customer@revka.id</h6>
+                                            <h6 class="mt-0 mb-1">{{setting('contact_section__email')}}</h6>
                                         </div>
                                     </li>
                                     <li class="media align-items-center my-4">
                                         <i class="fa fa-phone fa-2x text-center" style="width: 100px;"></i>
                                         <div class="media-body">
-                                            <h6 class="mt-0 mb-1">0813 2002 3346</h6>
+                                            <h6 class="mt-0 mb-1">{{setting('contact_section__phone_number')}}</h6>
                                         </div>
                                     </li>
                                 </ul>

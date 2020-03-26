@@ -19,7 +19,13 @@ Auth::routes([
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('app/settings', 'App\SettingController@index')->name('app.settings');
-    Route::post('app/settings', 'App\SettingController@store')->name('app.settings.store');
+
+
+Route::group(['as' => 'app.', 'prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function(){
+
+    Route::get('settings', 'SettingController@index')->name('settings');
+    Route::post('settings', 'SettingController@store')->name('settings.store');
+
+    Route::get('header_carousel/data', 'HeaderCarouselController@data')->name('header_carousel.data');
+    Route::resource('header_carousel', 'HeaderCarouselController');
 });
