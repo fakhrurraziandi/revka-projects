@@ -86,7 +86,9 @@ a{
     position: fixed;
     z-index: 999999;
 
-    height: 100vh;
+    height: 80vh;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     right: 16px;
     flex-direction: column;
