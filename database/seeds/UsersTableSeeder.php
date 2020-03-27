@@ -28,6 +28,17 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2020-03-24 08:31:21',
                 'updated_at' => '2020-03-24 08:31:21',
             ),
+            1 => 
+            array (
+                'id' => 3,
+                'name' => 'Fakhrurrazi Andi',
+                'email' => 'fakhrurrazi.andi@gmail.com',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$6OHrJWD2vnLmrs.xw/6SeeRjt7vSmjtAYbTwnozZwvPz9mlQSYqn2',
+                'remember_token' => NULL,
+                'created_at' => '2020-03-27 06:17:19',
+                'updated_at' => '2020-03-27 06:17:19',
+            ),
         ));
         
         
