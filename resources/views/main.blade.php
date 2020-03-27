@@ -26,8 +26,10 @@ use App\ClientTestimonial;
             <li class="aside-nav--item"><a class="aside-nav--link" href="#section-contact"><span>Contact</span></a></li>
         </ul>
         
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top ">
-            <a class="navbar-brand" href="#">REVKA</a>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top py-3" style="background-color: rgba(0, 0, 0, 0.9);">
+            <a class="navbar-brand" href="#">
+                <img src="{{asset('design/dist/images/logo-revka.png')}}" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -60,7 +62,7 @@ use App\ClientTestimonial;
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-8 text-center">
-                                    <h1 class="font-weight-normal">{{$header_carousel->title}}</h1>
+                                        <h1 class="font-weight-normal">{{$header_carousel->title}}</h1>
                                         <p class="lead">{{$header_carousel->subtitle}}</p>
                                         <p class="my-5"><a href="{{$header_carousel->link_url}}" class="btn btn-danger btn-lg">{{$header_carousel->link_text}}</a></p>
                                     </div>

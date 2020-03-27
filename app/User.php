@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Sofa\Eloquence\Eloquence;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Eloquence;
 
     /**
      * The attributes that are mass assignable.
@@ -17,6 +18,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
+    ];
+
+    protected $searchableColumns = [
+        'name', 'email'
     ];
 
     /**

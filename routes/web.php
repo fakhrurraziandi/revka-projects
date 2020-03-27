@@ -41,5 +41,8 @@ Route::group(['as' => 'app.', 'prefix' => 'app', 'namespace' => 'App', 'middlewa
     Route::get('portofolio/data', 'PortofolioController@data')->name('portofolio.data');
     Route::resource('portofolio', 'PortofolioController');
 
+    Route::get('user/data', 'UserController@data')->name('user.data');
+    Route::resource('user', 'UserController');
+
     
 });
