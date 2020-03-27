@@ -225,7 +225,7 @@ return [
 
 
             [
-                'type' => 'text', // input fields type
+                'type' => 'textarea', // input fields type
                 'data' => 'string', // data type, string, int, boolean
                 'name' => 'contact_section__google_map_embedded_script', // unique name for field
                 'label' => 'Google Map Embedded Script', // you know what label it is
