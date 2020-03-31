@@ -15,15 +15,21 @@ use App\ClientTestimonial;
     </head>
     <body>
 
-        
-        <ul class="aside-nav">
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#"><span>Home</span></a></li>
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#section-service"><span>Service</span></a></li>
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#section-about"><span>About Us</span></a></li>
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#section-value"><span>Values</span></a></li>
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#section-testimonial"><span>Testimonial</span></a></li>
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#section-portofolio"><span>Portofolio</span></a></li>
-            <li class="aside-nav--item"><a class="aside-nav--link" href="#section-contact"><span>Contact</span></a></li>
+        <ul class="aside-nav aside-nav--left">
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#"><span><i class="fa fa-2x fa-facebook"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-service"><span><i class="fa fa-2x fa-twitter"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-about"><span><i class="fa fa-2x fa-instagram"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-value"><span><i class="fa fa-2x fa-youtube"></i></span></a></li>
+        </ul>
+
+        <ul class="aside-nav aside-nav--right">
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#"><span>Home</span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-service"><span>Service</span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-about"><span>About Us</span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-value"><span>Values</span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-testimonial"><span>Testimonial</span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-portofolio"><span>Portofolio</span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-contact"><span>Contact</span></a></li>
         </ul>
         
         <nav class="navbar navbar-expand-md navbar-dark fixed-top py-3" style="background-color: rgba(0, 0, 0, 0.9);">

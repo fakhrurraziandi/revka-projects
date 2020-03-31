@@ -1,0 +1,28 @@
+0. dashboard
+	a. login page, gambarnya ganti jadi logo revka aja, atau selain photo gukguk,, hehe (done)
+	b. warna sidebar kiri dashboard background ganti jadi hitam, teksnya putih, dan garisnya merah. (Done)
+	
+1. sidebar 
+	a. sidebar kiri (sosmed) belum ada, dibuat floating sama dengan yang kanan (Done)
+	b. sidebar kanan garisnya dibuat lebih pendek lagi (50% nya) (Done)
+
+2. Our Service
+	a. carousel bisa diklik jadi modal untuk masukin full deskripsinya 
+	b. button arrow kanan kiri belum ada
+
+3. About Us
+	a. tambah button 'read more' yang diklik jadi modal untuk full deskripsi abous us
+	b. kira2 gambarnya bisa dibikin ganti2 secara random ga,,? jadi ga statis kayak gitu, tapi bukan slider jadinya
+
+4. Testimonials
+	a. ukurannya terlalu memanjang ke bawah, yang label merah hanya namanya saja, jabatan dan deskripnya dibikin sesuai dengan mockup (transparent background), kalo sekiranya tidak bisa, dibuat dalam bentuk modal aja.
+	b. button arrow kanan kiri belum ada
+
+5. Portofolios
+	a. bisa diklik jadi modal untuk full deskripsinya.
+
+6. Contact
+	a. bisa tolong ditambahin contact form ?
+
+7. button back to top belum ada, dibikin floating dari mulai dari segmen service aja
+8. Footernya terlalu lebar, dibikin lebih tipis aja heightnya, samain sama navbar

@@ -82,7 +82,7 @@ a{
     text-decoration: none;
 }
 
-.aside-nav{
+.aside-nav.aside-nav--right{
     position: fixed;
     z-index: 999999;
 
@@ -94,61 +94,92 @@ a{
     flex-direction: column;
     justify-content: center;
     list-style: none;
-}
 
-.aside-nav--item{
-
-    
-}
-
-.aside-nav--link{
-    color: #fff;
-    padding: 10px 16px;
-    
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    span{
-        display: block;
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
-    }
-
-    &.active{
-        span{
-            opacity: 1;
-        }
-
-        &:after{
-            width: 150px;
-        }
-    }
-
-    &:hover{
+    .aside-nav__link{
         color: #fff;
-        text-decoration: none;
-
-        span{
-            opacity: 1;
-        }
-
-        &:after{
-            width: 100px;
-        }
-    }
+        padding: 10px 16px;
+        
     
-    &:after{
-        content: "";
-        display: block;
-        background-color: #fff;
-        height: 2px;
-        width: 50px;
-        margin: 0 16px;
-        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    
+        span{
+            display: block;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+    
+        &.active{
+            span{
+                opacity: 1;
+            }
+    
+            &:after{
+                width: 100px;
+            }
+        }
+    
+        &:hover{
+            color: #fff;
+            text-decoration: none;
+    
+            span{
+                opacity: 1;
+            }
+    
+            &:after{
+                width: 50px;
+            }
+    
+        }
+        
+        &:after{
+            content: "";
+            display: block;
+            background-color: #fff;
+            height: 2px;
+            width: 25px;
+            margin: 0 16px;
+            transition: all 0.3s ease-in-out;
+        }
     }
 }
+
+.aside-nav.aside-nav--left{
+    position: fixed;
+    z-index: 999999;
+
+    padding-left: 0;
+    padding-right: 40px;
+
+    height: 80vh;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    left: 16px !important;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+
+    .aside-nav__link{
+        color: #fff;
+        padding: 10px 16px;
+        
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        
+    
+        
+        
+        
+    }
+}
+
+
 
 
 
