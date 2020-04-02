@@ -70,5 +70,8 @@ Route::group(['as' => 'app.', 'prefix' => 'app', 'namespace' => 'App', 'middlewa
     Route::get('user/data', 'UserController@data')->name('user.data');
     Route::resource('user', 'UserController');
 
+    Route::get('contact_message/data', 'ContactMessageController@data')->name('contact_message.data');
+    Route::resource('contact_message', 'ContactMessageController');
+
     
 });

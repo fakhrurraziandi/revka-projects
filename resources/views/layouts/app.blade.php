@@ -97,6 +97,12 @@ use Illuminate\Support\Facades\Request;
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('app.contact_message.index')}}">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Contact Message</span></a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('app.user.index')}}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Users</span></a>
