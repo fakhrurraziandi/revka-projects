@@ -7,22 +7,25 @@
 	b. sidebar kanan garisnya dibuat lebih pendek lagi (50% nya) (Done)
 
 2. Our Service
-	a. carousel bisa diklik jadi modal untuk masukin full deskripsinya 
-	b. button arrow kanan kiri belum ada
+	a. carousel bisa diklik jadi modal untuk masukin full deskripsinya (done)
+	b. button arrow kanan kiri belum ada (ini karna sample nya hanya ada 2 sample conten, jika lebih dari 3 maka navigasi nya akan muncul) (Done)
 
 3. About Us
-	a. tambah button 'read more' yang diklik jadi modal untuk full deskripsi abous us
-	b. kira2 gambarnya bisa dibikin ganti2 secara random ga,,? jadi ga statis kayak gitu, tapi bukan slider jadinya
+	a. tambah button 'read more' yang diklik jadi modal untuk full deskripsi abous us (done)
+	b. kira2 gambarnya bisa dibikin ganti2 secara random ga,,? jadi ga statis kayak gitu, tapi bukan slider jadinya (done)
 
 4. Testimonials
-	a. ukurannya terlalu memanjang ke bawah, yang label merah hanya namanya saja, jabatan dan deskripnya dibikin sesuai dengan mockup (transparent background), kalo sekiranya tidak bisa, dibuat dalam bentuk modal aja.
-	b. button arrow kanan kiri belum ada
+	a. ukurannya terlalu memanjang ke bawah, yang label merah hanya namanya saja, jabatan dan deskripnya dibikin sesuai dengan mockup (transparent background), kalo sekiranya tidak bisa, dibuat dalam bentuk modal aja. (done)
+	b. button arrow kanan kiri belum ada (done)
 
 5. Portofolios
-	a. bisa diklik jadi modal untuk full deskripsinya.
+	a. bisa diklik jadi modal untuk full deskripsinya. (Done)
 
 6. Contact
-	a. bisa tolong ditambahin contact form ?
+	a. bisa tolong ditambahin contact form ? (Done) (Tinggal buat module untuk admin nya saja)
 
-7. button back to top belum ada, dibikin floating dari mulai dari segmen service aja
-8. Footernya terlalu lebar, dibikin lebih tipis aja heightnya, samain sama navbar
+7. button back to top belum ada, dibikin floating dari mulai dari segmen service aja (Done)
+8. Footernya terlalu lebar, dibikin lebih tipis aja heightnya, samain sama navbar (Done)
+
+
+9. Sidebar floating navigation hanaya muncul di section service kebawah (DOne)

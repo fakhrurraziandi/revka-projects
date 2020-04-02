@@ -1,5 +1,11 @@
 <?php
 
+use App\ContactMessage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +18,26 @@
 */
 
 Route::view('/', 'main');
+
+Route::post('/submit-contact-message', function(Request $request){
+
+    $validator = Validator::make($request->all(), [
+        'name' => 'required',
+        'email' => 'required',
+        'message' => 'required'
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/#section-contact')
+                    ->withErrors($validator)
+                    ->withInput();
+    }
+
+    ContactMessage::create($request->all());
+
+    return Redirect::to('/#section-contact')->with('success', true);
+
+})->name('submit-contact-message');
 
 Auth::routes([
     'register' => true

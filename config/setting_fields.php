@@ -17,7 +17,7 @@ return [
                 'value' => 'CoolApp' // default value if you want
             ]
         ]
-            ],
+    ],
 
     'services_section_setting' => [
         'title' => 'Services Sections Setting',
@@ -235,6 +235,52 @@ return [
             ],
 
             
+            
+        ]
+    ],
+
+    'social_media_setting' => [
+        'title' => 'Social Media Setting',
+        'desc' => 'All Social Media Setting',
+        'icon' => 'glyphicon glyphicon-sunglasses',
+
+        'elements' => [
+            [
+                'type' => 'textarea', // input fields type
+                'data' => 'text', // data type, string, int, boolean
+                'name' => 'social_media__facebook_url', // unique name for field
+                'label' => 'Facebook URL', // you know what label it is
+                'rules' => 'required|min:2|max:50', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => 'https://www.facebook.com/' // default value if you want
+            ],
+            [
+                'type' => 'textarea', // input fields type
+                'data' => 'text', // data type, string, int, boolean
+                'name' => 'social_media__twitter_url', // unique name for field
+                'label' => 'Twitter URL', // you know what label it is
+                'rules' => 'required|min:2', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => 'https://twitter.com/' // default value if you want
+            ],
+            [
+                'type' => 'textarea', // input fields type
+                'data' => 'text', // data type, string, int, boolean
+                'name' => 'social_media__instagram_url', // unique name for field
+                'label' => 'Instagram URL', // you know what label it is
+                'rules' => 'required|min:2', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => 'https://instagram.com/' // default value if you want
+            ],
+            [
+                'type' => 'textarea', // input fields type
+                'data' => 'text', // data type, string, int, boolean
+                'name' => 'social_media__youtube_url', // unique name for field
+                'label' => 'Youtube URL', // you know what label it is
+                'rules' => 'required|min:2', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => 'https://youtube.com/' // default value if you want
+            ],
             
         ]
     ],

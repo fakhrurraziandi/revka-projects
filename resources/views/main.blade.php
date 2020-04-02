@@ -4,6 +4,7 @@ use App\ValueContent;
 use App\HeaderCarousel;
 use App\ServiceCarousel;
 use App\ClientTestimonial;
+use Illuminate\Support\Facades\Session;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,14 +13,18 @@ use App\ClientTestimonial;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Revka</title>
         <link rel="stylesheet" href="{{asset('design/dist/app.css')}}">
+
+        <script src="{{asset('design/dist/app.js')}}"></script>
     </head>
     <body>
 
+        <a href="#" class="text-white back-to-top-button show"><i class="fa fa-3x fa-chevron-circle-up"></i></a>
+
         <ul class="aside-nav aside-nav--left">
-            <li class="aside-nav__item"><a class="aside-nav__link" href="#"><span><i class="fa fa-2x fa-facebook"></i></span></a></li>
-            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-service"><span><i class="fa fa-2x fa-twitter"></i></span></a></li>
-            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-about"><span><i class="fa fa-2x fa-instagram"></i></span></a></li>
-            <li class="aside-nav__item"><a class="aside-nav__link" href="#section-value"><span><i class="fa fa-2x fa-youtube"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="{{setting('social_media__facebook_url')}}"><span><i class="fa fa-2x fa-facebook"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="{{setting('social_media__twitter_url')}}"><span><i class="fa fa-2x fa-twitter"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="{{setting('social_media__instagram_url')}}"><span><i class="fa fa-2x fa-instagram"></i></span></a></li>
+            <li class="aside-nav__item"><a class="aside-nav__link" href="{{setting('social_media__youtube_url')}}"><span><i class="fa fa-2x fa-youtube"></i></span></a></li>
         </ul>
 
         <ul class="aside-nav aside-nav--right">
@@ -76,6 +81,9 @@ use App\ClientTestimonial;
                             </div>
                         </div>
                     @endforeach
+
+                   
+                    
                 </div>
             </header>
         @endif
@@ -102,7 +110,7 @@ use App\ClientTestimonial;
 
                                 @foreach(ServiceCarousel::all() as $service_carousel)
 
-                                    <div class="service-carousel__item">
+                                    <div class="service-carousel__item" data-toggle="modal" data-target=".service-carousel--{{str_slug($service_carousel->title)}}">
                                         <div class="flip-card">
                                             <div class="flip-card__front">
                                                 <div class="flip-card__image-holder" style="background-image: url('{{$service_carousel->image_url}}');"></div>
@@ -111,7 +119,7 @@ use App\ClientTestimonial;
                                                 <div class="flip-card__content text-center">
                                                     <h3>{{$service_carousel->title}}</h3>
                                                     <hr class="bg-white">
-                                                    <p>{{$service_carousel->description}}</p>
+                                                    <p>{{substr(strip_tags($service_carousel->description), 0, 100)}} [...]</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,13 +136,44 @@ use App\ClientTestimonial;
                 
             </section>
 
+            @foreach(ServiceCarousel::all() as $service_carousel)
+
+                <div class="modal fade service-carousel--{{str_slug($service_carousel->title)}}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content bg-dark">
+                            
+                            <div class="modal-body p-5">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <img src="{{$service_carousel->image_url}}" alt="" class="img-fluid mb-3">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <h2 class="font-weight-bold">{{$service_carousel->title}}</h2>
+                                        <hr class="bg-white">
+                                        <p>{!!$service_carousel->description!!}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
+
         @endif
 
         <section class="section section--about d-flex align-items-center" id="section-about">
 
-            <div class="section__float-left-bg-holder" style="background-image: url('{{asset('design/dist/images/photograph-of-men-having-conversation-seating-on-chair-1015568.jpg')}}');"></div>
+            
+            <div class="owl-carousel about-image-slider owl-theme">
+                <div class="about-image-slider--bg-holder" style="background-image: url('{{asset('design/src/images/adult-business-computer-contemporary-380769.jpg')}}')"></div>
+                <div class="about-image-slider--bg-holder" style="background-image: url('{{asset('design/src/images/books-cup-of-coffee-desk-laptop-373892.jpg')}}')"></div>
+                <div class="about-image-slider--bg-holder" style="background-image: url('{{asset('design/src/images/photograph-of-men-having-conversation-seating-on-chair-1015568.jpg')}}')"></div>
+            </div>
+            
+            
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="z-index: 1;">
                 <div class="row mb-3">
                     <div class="col-lg-6 offset-lg-6">
 
@@ -143,7 +182,9 @@ use App\ClientTestimonial;
                                 <div class="text-center">
                                     <h2 class="display-4">{{setting('about_section__title')}}</h2>
                                     <h5 class="mb-4">{{setting('about_section__subtitle')}}</h5>
-                                    <p>{{setting('about_section__detail')}}</p>
+                                    <p>{{substr(strip_tags(setting('about_section__detail')), 0, 100)}} [..]</p>
+                                    
+                                    <p class="my-4"><a href="#" data-toggle="modal" data-target=".modal-about-us" class="btn btn-danger">Read More</a></p>
                                 </div>
                             </div>
                         </div>
@@ -152,6 +193,24 @@ use App\ClientTestimonial;
                 </div>
             </div>
         </section>
+
+        <div class="modal fade modal-about-us" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content bg-dark">
+                    
+                    <div class="modal-body p-5">
+                        <div class="row">
+                            
+                            <div class="col-sm-12 text-center">
+                                <h2 class="display-4">{{setting('about_section__title')}}</h2>
+                                <h5 class="mb-4">{{setting('about_section__subtitle')}}</h5>
+                                <p>{!!setting('about_section__detail')!!}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="section section--value d-flex align-items-center" id="section-value">
 
@@ -195,16 +254,15 @@ use App\ClientTestimonial;
                 @if(ClientTestimonial::count() > 0)
 
                     <div class="row mb-3 justify-content-center">
-                        <div class="col-md-8 text-center">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-8 text-center">
                             <div class="owl-carousel testimonial-carousel owl-theme">
 
                                 @foreach(ClientTestimonial::all() as $client_testimonial)
-                                    <div class="testimonial-carousel__item">
+                                    <div class="testimonial-carousel__item"  data-toggle="modal" data-target=".client-testimonial--{{str_slug($client_testimonial->name)}}">
 
                                         <div class="testimonial-carousel__image-holder" style="background-image: url('{{$client_testimonial->image_url}}');"></div>
                                         <div class="testimonial-carousel__text bg-danger text-center px-3">
                                             <h5 class="font--nunito my-2">{{$client_testimonial->name}}</h5>
-                                            <p><small>{{$client_testimonial->testimonial}}</small></p>
                                         </div>
                                     </div>
                                 @endforeach
@@ -215,6 +273,30 @@ use App\ClientTestimonial;
                 @endif
             </div>
         </section>
+
+        @foreach(ClientTestimonial::all() as $client_testimonial)
+
+            <div class="modal fade client-testimonial--{{str_slug($client_testimonial->name)}}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                    <div class="modal-content bg-dark">
+                        
+                        <div class="modal-body p-5">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="{{$client_testimonial->image_url}}" alt="" class="img-fluid mb-3 w-100">
+                                </div>
+                                <div class="col-sm-9">
+                                    <h2 class="font-weight-bold">{{$client_testimonial->name}}</h2>
+                                    <hr class="bg-white">
+                                    <p>{!!$client_testimonial->testimonial!!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endforeach
 
         <section class="section section--portofolio d-flex align-items-center" id="section-portofolio">
 
@@ -232,7 +314,7 @@ use App\ClientTestimonial;
                         <div class="owl-carousel portofolio-carousel owl-theme">
 
                             @foreach(Portofolio::all() as $portofolio)
-                                <div class="portofolio-carousel__item">
+                                <div class="portofolio-carousel__item"  data-toggle="modal" data-target=".portofolio--{{str_slug($portofolio->title)}}">
                                     
                                     <div class="portofolio-carousel__image-holder" style="background-image: url('{{$portofolio->image_url}}');"></div>
                                     <div class="portofolio-carousel__text px-5">
@@ -250,6 +332,30 @@ use App\ClientTestimonial;
             </div>
         </section>
 
+        @foreach(Portofolio::all() as $portofolio)
+
+            <div class="modal fade portofolio--{{str_slug($portofolio->title)}}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                    <div class="modal-content bg-dark">
+                        
+                        <div class="modal-body p-5">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <img src="{{$portofolio->image_url}}" alt="" class="img-fluid mb-3 w-100">
+                                </div>
+                                <div class="col-sm-7">
+                                    <h2 class="font-weight-bold">{{$portofolio->title}}</h2>
+                                    <hr class="bg-white">
+                                    <p>{!!$portofolio->description!!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endforeach
+
         <section class="section section--contact d-flex align-items-center" id="section-contact">
             <div class="container-fluid h-100 mt-5">
                 <div class="row h-100 align-items-center">
@@ -261,6 +367,62 @@ use App\ClientTestimonial;
                                     <h2 class="display-4">{{setting('contact_section__title')}}</h2>
                                     <p class="lead">{{setting('contact_section__subtitle')}}</p>
                                 </div>
+
+                                <form class="text-left border-bottom border-white pb-5" method="POST" action="{{route('submit-contact-message')}}">
+
+                                    @if(Session::has('success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>Submitted!</strong> We have received your contact message, we will contact you shortly
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endif
+
+                                    @csrf
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-sm-2 col-form-label text-md-right">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Your Email Address">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-2 col-form-label text-md-right">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Your Name">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="message" class="col-sm-2 col-form-label text-md-right">Message</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" placeholder="Your Message" rows="6"></textarea>
+                                            @error('message')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-10 offset-sm-2">
+                                            <button type="submit" class="btn btn-danger"><i class="fa fa-paper-plane-o"></i> Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
 
                                 <ul class="list-unstyled text-left">
                                     <li class="media align-items-center my-4">
@@ -294,11 +456,11 @@ use App\ClientTestimonial;
             </div>
         </section>
 
-        <footer class="bg-danger py-5">
+        <footer class="bg-danger py-3">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h5 class="mb-0">© 2010-2020, Revka.id</h5>
+                        <p class="mb-0">© 2010-2020, Revka.id</p>
                     </div>
                 </div>
             </div>
@@ -306,6 +468,6 @@ use App\ClientTestimonial;
 
        
 
-        <script src="{{asset('design/dist/app.js')}}"></script>
+        
     </body>
 </html>
