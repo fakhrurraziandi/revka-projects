@@ -38,7 +38,7 @@
                         <div class="form-group row">
                             <label for="description" class="col-sm-2 col-form-label text-sm-right">Description</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control {{$errors->has('description') ? 'is-invalid' : ''}}" id="description" name="description" placeholder="Description" value="{{old('description', (isset($service_carousel) ? $service_carousel->description : null)) }}">
+                                <textarea class="form-control {{$errors->has('description') ? 'is-invalid' : ''}}" id="description" name="description" placeholder="Description" rows="8">{{old('description', (isset($service_carousel) ? $service_carousel->description : null)) }}</textarea>
                                 @if($errors->has('description'))
                                     <div class="invalid-feedback">
                                         {{$errors->first('description')}}
