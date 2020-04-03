@@ -1,9 +1,12 @@
 <?php
 
+use App\User;
 use App\ContactMessage;
 use Illuminate\Http\Request;
+use App\Notifications\NewContactMessage;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 
 
 /*
@@ -33,7 +36,9 @@ Route::post('/submit-contact-message', function(Request $request){
                     ->withInput();
     }
 
-    ContactMessage::create($request->all());
+    $contact_message = ContactMessage::create($request->all());
+
+    Notification::send(User::all(), new NewContactMessage($contact_message));
 
     return Redirect::to('/#section-contact')->with('success', true);
 
