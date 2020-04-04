@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Session;
     </head>
     <body>
 
-        <a href="#" class="text-white back-to-top-button show"><i class="fa fa-3x fa-chevron-circle-up"></i></a>
+        <a href="#" class="text-white back-to-top-button"><i class="fa fa-3x fa-chevron-circle-up"></i></a>
 
         <ul class="aside-nav aside-nav--left">
             <li class="aside-nav__item"><a class="aside-nav__link" href="{{setting('social_media__facebook_url')}}"><span><i class="fa fa-2x fa-facebook"></i></span></a></li>
@@ -381,6 +381,8 @@ use Illuminate\Support\Facades\Session;
 
                                     @csrf
 
+                                    
+
                                     <div class="form-group row">
                                         <label for="email" class="col-sm-2 col-form-label text-md-right">Email</label>
                                         <div class="col-sm-10">
@@ -461,6 +463,13 @@ use Illuminate\Support\Facades\Session;
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p class="mb-0">© 2010-2020, Revka.id</p>
+
+                        <ul class="m-0 p-0 py-3 d-sm-block d-md-none d-lg-none">
+                            <li class="d-inline-block"><a class="text-white px-3 py-2" href="{{setting('social_media__facebook_url')}}"><span><i class="fa fa-facebook"></i></span></a></li>
+                            <li class="d-inline-block"><a class="text-white px-3 py-2" href="{{setting('social_media__twitter_url')}}"><span><i class="fa fa-twitter"></i></span></a></li>
+                            <li class="d-inline-block"><a class="text-white px-3 py-2" href="{{setting('social_media__instagram_url')}}"><span><i class="fa fa-instagram"></i></span></a></li>
+                            <li class="d-inline-block"><a class="text-white px-3 py-2" href="{{setting('social_media__youtube_url')}}"><span><i class="fa fa-youtube"></i></span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

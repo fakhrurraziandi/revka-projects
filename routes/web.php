@@ -54,6 +54,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['as' => 'app.', 'prefix' => 'app', 'namespace' => 'App', 'middleware' => ['auth']], function(){
 
+    
+
     Route::get('settings', 'SettingController@index')->name('settings');
     Route::post('settings', 'SettingController@store')->name('settings.store');
 
