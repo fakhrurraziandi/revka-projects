@@ -205,11 +205,18 @@
     .owl-nav{
 
         // display: none;
-        
+        @include media-breakpoint-down(sm){
+            .owl-prev{
+                left: 0px !important;
+            }
+            .owl-next{
+                right: 0px !important;
+            }
+        }
         
         .owl-prev{
             position: absolute;
-            left: -100px;
+            left: -10%;
             top: 50%;
             transform: translateY(-50%);
             span{
@@ -218,7 +225,7 @@
         }
         .owl-next{
             position: absolute;
-            right: -100px;
+            right: -10%;
             top: 50%;
             transform: translateY(-50%);
             span{
